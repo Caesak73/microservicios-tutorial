@@ -5,7 +5,7 @@ spring:
     config:
       server:
         git: 
-          default-label: multiple-instances,config-server,gateway
+          default-label: circuit-breaker,multiple-instances,config-server,gateway
           uri: https://github.com/Caesak73/microservicios-tutorial.git
           search-paths: config-data
   application:
