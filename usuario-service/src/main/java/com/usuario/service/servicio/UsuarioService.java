@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import jakarta.persistence.Transient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -16,6 +17,7 @@ import com.usuario.service.modelos.Moto;
 import com.usuario.service.repositorio.UsuarioRepository;
 
 @Service
+@Transient
 public class UsuarioService {
 
 	@Autowired
@@ -36,7 +38,7 @@ public class UsuarioService {
 	}
 
 	public List<Moto> getMotos(int usuarioId) {
-		List<Moto> motos = restTemplate.getForObject("http://localhost:8003/moto/usuario/" + usuarioId, List.class);
+		List<Moto> motos = restTemplate.getForObject("http://moto-service/moto/usuario/" + usuarioId, List.class);
 		return motos;
 	}
 	
